@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+ 
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.study.model.LoginMapper">
+
+	<select id="loginCheck" parameterType="Map" resultType="int">
+		select
+		count(id) as cnt
+		from userTBL
+		where id = #{id} and password = #{password}
+	</select>
+	
+	<select id="read" parameterType="String" resultType="String">
+		select userName
+		from userTBL
+		where id = #{id}
+	</select>
+
+</mapper>

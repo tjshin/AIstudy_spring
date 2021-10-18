@@ -1,0 +1,53 @@
+package com.study.controller;
+
+import static org.junit.jupiter.api.Assertions.fail;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.web.servlet.MockMvc;
+
+import com.study.bbs.SpringBbsApplication;
+
+@ExtendWith(SpringExtension.class)
+@WebMvcTest(controllers = ReplyController.class)
+@ContextConfiguration(classes=SpringBbsApplication.class)
+class ReplyControllerTest {
+	
+	@Autowired
+	private MockMvc mvc;
+
+	@Test
+	void testGetList() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testGetPage() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testCreate() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testGet() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testModify() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testRemove() {
+		fail("Not yet implemented");
+	}
+
+}

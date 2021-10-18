@@ -1,0 +1,22 @@
+package com.study.controller;
+
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import com.study.model.LoginMapper;
+
+@Controller
+public class LoginController {
+
+	@Autowired
+	private LoginMapper mapper;
+	
+	@GetMapping("/")
+	public String loginCheck() {
+		
+		return "test1";
+	}
+
+	
+}

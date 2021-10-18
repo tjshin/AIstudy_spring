@@ -1,0 +1,38 @@
+package com.study.controller;
+
+
+
+
+import java.util.HashMap;
+import java.util.Locale;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.study.model.LoginMapper;
+
+@Controller
+public class LoginController {
+	
+	@Autowired
+	private LoginMapper mapper;
+	
+	@GetMapping("/")
+	public String loginCheck(Locale locale, Model model) {
+		return "test1";
+	}
+	
+	@PostMapping("/")
+	@ResponseBody
+	public HashMap<String, String> loginCheck(Locale locale, Model model, HttpServletRequest request) {
+		HashMap<String, String> result = new HashMap <String,String>();
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+		LoginDTO dto = new LoginDTO();
+}

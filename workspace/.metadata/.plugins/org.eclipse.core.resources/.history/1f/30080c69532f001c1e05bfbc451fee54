@@ -1,0 +1,28 @@
+package com.study.controller;
+
+
+
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.study.model.LoginMapper;
+
+@Controller
+public class LoginController {
+
+	@Autowired
+	private LoginMapper mapper;
+	
+	@GetMapping("/")
+	public String loginCheck(@RequestParam Map<String, Object> map) {
+		String id = (String) map.get("id");
+		String password = (String) map.get("password");
+		return "test1";
+	}
+
+	
+}

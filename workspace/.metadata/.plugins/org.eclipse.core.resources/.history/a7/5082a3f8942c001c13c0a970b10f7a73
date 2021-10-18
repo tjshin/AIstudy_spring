@@ -1,0 +1,39 @@
+package com.study.controller;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class ReplyControllerTest {
+
+	@Test
+	void testGetList() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testGetPage() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testCreate() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testGet() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testModify() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testRemove() {
+		fail("Not yet implemented");
+	}
+
+}

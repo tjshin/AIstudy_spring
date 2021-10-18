@@ -1,0 +1,7 @@
+package com.study.member;
+
+public interface MemberMapper {
+
+	int duplicatedId(String id);
+
+}

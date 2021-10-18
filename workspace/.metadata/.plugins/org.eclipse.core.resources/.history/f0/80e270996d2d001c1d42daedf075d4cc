@@ -1,0 +1,57 @@
+package com.study.member;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+public class MemberController {
+	
+	@Autowired
+	@Qualifier("com.study.member.MemberServiceImpl")
+	private MemberService service;
+
+	@GetMapping("/")
+	public String home() {
+
+		return "/home";
+	}
+	
+	@GetMapping("/member/agree")
+	public String agree() {
+					
+		return "/member/agree";
+	}
+	
+	@PostMapping("/member/createForm")
+	public String create() {
+		
+		return "/member/createForm";
+	}
+	
+	@GetMapping(value="/member/idcheck", produces="application/json;charset=utf-8")
+	@ResponseBody
+	public Map < String, String > idcheck(String id) {
+		
+		int cnt = service.duplicatedId(id);
+		
+		Map < String, String > map = new HashMap < String, String >();
+		
+		if(cnt > 0) {
+			
+			map.put("str", id + "는 중복된 아이디입니다.");
+			
+		} else {
+			
+			map.put("str", id + "는 사용 가능합니다.");
+			
+		}
+		return map;		
+	}
+}

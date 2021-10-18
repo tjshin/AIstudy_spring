@@ -1,0 +1,24 @@
+package com.study.member;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service("com.study.member.MemberServiceImpl")
+public class MemberServiceImpl implements MemberService {
+	
+	@Autowired
+	private MemberMapper mapper;
+
+	@Override
+	public int duplicatedId(String id) {
+		// TODO Auto-generated method stub
+		return mapper.duplicatedId(id);
+	}
+
+	@Override
+	public int duplicatedEmail(String email) {
+		// TODO Auto-generated method stub
+		return mapper.duplicatedEmail(email);
+	}
+
+}

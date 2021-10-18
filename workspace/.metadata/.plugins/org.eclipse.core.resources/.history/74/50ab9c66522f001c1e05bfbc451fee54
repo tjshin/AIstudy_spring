@@ -1,0 +1,44 @@
+package com.study.controller;
+
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.study.model.LoginDTO;
+import com.study.model.LoginMapper;
+
+@Controller
+public class LoginController {
+
+	@Autowired
+	private LoginMapper mapper;
+
+	@GetMapping(value = "/", produces = "application/json;charset=utf-8")
+	@ResponseBody
+	public Map<String, String> loginCheck(Map<String, String> map) {
+
+		int cnt = mapper.loginCheck(map);
+
+		Map<String, String> map2 = new HashMap<String, String>();
+
+		if (cnt > 0) {
+
+			map2.put("str", "실패");
+
+		} else {
+
+			map2.put("str", "성공");
+
+		}
+		return map2;
+	}
+}

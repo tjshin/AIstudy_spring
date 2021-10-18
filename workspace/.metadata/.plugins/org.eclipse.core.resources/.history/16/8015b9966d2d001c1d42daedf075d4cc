@@ -1,0 +1,7 @@
+package com.study.member;
+
+public interface MemberService {
+
+	int duplicatedId(String id);
+
+}

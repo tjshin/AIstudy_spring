@@ -1,0 +1,44 @@
+package com.study.controller;
+
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.study.model.LoginDTO;
+import com.study.model.LoginMapper;
+
+@Controller
+public class LoginController {
+
+	@Autowired
+	private LoginMapper mapper;
+
+	@GetMapping(value = "/", produces = "application/json;charset=utf-8")
+	@ResponseBody
+	public Map<String, String> loginCheck(String id) {
+
+		int cnt = mapper.loginCheck(id);
+
+		Map<String, String> map = new HashMap<String, String>();
+
+		if (cnt > 0) {
+
+			map.put("str", id + "는 중복된 아이디입니다.");
+
+		} else {
+
+			map.put("str", id + "는 사용 가능합니다.");
+
+		}
+		return map;
+	}
+}

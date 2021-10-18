@@ -1,0 +1,12 @@
+package com.study.controller;
+
+public class Utility {
+
+	public static String checkNull(String parameter) {
+		if(str == null) {
+			str = "";
+		}
+		return str;
+	}
+
+}

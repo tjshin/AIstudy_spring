@@ -1,0 +1,26 @@
+package com.study.member;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class MemberController {
+	
+	@Autowired
+	@Qualifier("com.study.member.MemberServiceImpl")
+	private MemberService service;
+
+	@GetMapping("/")
+	public String home() {
+
+		return "/home";
+	}
+	
+	@GetMapping("/member/agree")
+	public String agree() {
+					
+		return "/member/agree";
+	}
+}

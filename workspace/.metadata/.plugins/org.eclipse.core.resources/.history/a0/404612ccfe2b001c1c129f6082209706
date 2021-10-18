@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+ 
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.study.model.ReplyMapper">
+<select id="list" parameterType="Map" resultType="com.study.model.ReplyDTO">
+select rnum, content, to_char(regdate,'yyyy-mm-dd') regdate, id, bbsno, r
+FROM(
+        select rnum, content, regdate, id, bbsno, rownum r
+        FROM(
+                select rnum, content, regdate, id, bbsno
+                from REPLY
+                where bbsno = #{bbsno}
+                order by rnum DESC
+           )
+<![CDATA[
+)WHERE r >= #{sno} and r <= #{eno}
+]]>
+</select>
+ 
+<select id="total" resultType="int" parameterType="int">
+select count(*) from reply
+where bbsno=#{bbsno}
+</select>
+</mapper>
